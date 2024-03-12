@@ -1,0 +1,25 @@
+@startuml
+actor Utente
+participant "Interfaccia Plugin" as UI
+participant "Motore di Generazione" as Engine
+participant "Database Keywords" as DB
+
+Utente -> UI: Seleziona Keywords
+activate UI
+UI -> Engine: Richiede Generazione Contenuto
+activate Engine
+Engine -> DB: Recupera Keywords
+activate DB
+DB -> Engine: Keywords
+deactivate DB
+Engine -> UI: Presenta Bozza Contenuto
+UI -> Utente: Mostra Bozza
+deactivate Engine
+Utente -> UI: Richiede Revisione Manuale
+UI -> Engine: Esegue Revisione
+activate Engine
+Engine -> UI: Contenuto Finale
+UI -> Utente: Presenta Contenuto Finale
+deactivate Engine
+deactivate UI
+@enduml

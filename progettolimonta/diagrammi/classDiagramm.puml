@@ -1,0 +1,27 @@
+@startuml
+class Plugin {
+  +String nome
+  +String versione
+}
+
+class Utente {
+  +String nome
+  +String ruolo
+}
+
+class Contenuto {
+  +String titolo
+  +String testo
+  +String[] paroleChiave
+  +void ottimizzaSEO()
+}
+
+class ParolaChiave {
+  +String testo
+  +int rilevanza
+}
+
+Plugin "1" -- "1..*" Utente
+Utente "1" -- "1..*" Contenuto
+Contenuto "1..*" -- "1..*" ParolaChiave
+@enduml

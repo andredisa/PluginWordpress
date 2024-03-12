@@ -1,0 +1,20 @@
+@startuml
+left to right direction
+actor "Proprietario di piccolo business" as BusinessOwner
+actor Blogger
+actor "Gestore E-commerce" as EcommerceManager
+actor "Agente di Marketing Digitale" as DigitalMarketer
+actor "Gestore di contenuti" as ContentManager
+
+rectangle "Plugin WordPress SEO" {
+  BusinessOwner --> (Creare Contenuti)
+  Blogger --> (Creare Contenuti)
+  EcommerceManager --> (Ottimizzare Descrizioni Prodotti)
+  DigitalMarketer --> (Gestire Contenuti Multipli)
+  ContentManager --> (Pubblicare Contenuti su Larga Scala)
+
+  (Creare Contenuti) .> (Selezionare Parole Chiave) : <<include>>
+  (Creare Contenuti) .> (Ottimizzare Meta Tags) : <<include>>
+  (Creare Contenuti) .> (Inserire Link Interni/Esterni) : <<include>>
+}
+@enduml
